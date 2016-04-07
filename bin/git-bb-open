@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+#
+# Open a file/directory on bitbucket in the current branch
+#
+# Copyright 2016 Joe Block <jpb@unixorn.net>
+#
+# License: Apache 2.0
+
+require 'pathname'
+
+def git_branch
+  `git rev-parse --abbrev-ref HEAD`.chomp
+end
+
+def git_commit
+  `git rev-parse HEAD`.chomp
+end
+
+def git_remote
+  `git remote -v | grep fetch`.chomp().split()[1]
+end
+
+def git_root
+  `git rev-parse --show-toplevel`.chomp
+end
+
+def constructURL
+  remote = git_remote()
+  bbloc = remote.index('bitbucket.org')
+  if not bbloc
+    "This repo does not have a fetch remote at bitbucket"
+    exit 1
+  end
+  url_prefix="https://#{remote[bbloc..-5]}/src/#{git_commit}"
+  root = Pathname.new(git_root())
+  pwd = Pathname.new(Dir.pwd())
+  if ARGV.length == 1
+    path = "/#{pwd.relative_path_from(root).to_s()}/#{ARGV[0]}"
+  else
+    if Dir.pwd() == git_root()
+      path = ''
+    else
+      path = "/#{pwd.relative_path_from(root).to_s()}"
+    end
+  end
+  url = url_prefix + path + "?at=#{git_branch}"
+end
+
+def openURL(url)
+  if RUBY_PLATFORM.index('darwin')
+    open_command = 'open'
+  end
+  if RUBY_PLATFORM.index('linux')
+    open_command = 'xdg-open'
+  end
+  system("#{open_command} #{url}")
+end
+
+if ARGV.length > 1
+  puts 'Usage: git-bb-open without args to open the current directory on bitbucket, viewing the current branch.'
+  puts '       git-bb-open <path> to open <path> on bitbucket, viewing the current branch'
+end
+
+openURL(constructURL())
