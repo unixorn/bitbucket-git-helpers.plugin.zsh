@@ -1,10 +1,34 @@
 # bitbucket-git-helpers
 
-Some git helper scripts for dealing with repos on bitbucket.
+Some git helper scripts for dealing with repos on bitbucket. Inspired by Peter Hurford's [git-it-on.zsh](https://github.com/peterhurford/git-it-on.zsh) plugin.
+
+*Note:* This has only been tested on OS X.  Support for Linux is present but has not been tested.
 
 ## Contents
 
-* git-bb-open - Opens the current directory (or a path if specified) on bitbucket in the current branch.
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Included Scripts](#included-scripts)
+  - [git-bb-open](#git-bb-open)
+- [Installing](#installing)
+  - [Antigen](#antigen)
+  - [oh-my-zsh](#oh-my-zsh)
+  - [zgen](#zgen)
+  - [Manual Installation](#manual-installation)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Included Scripts
+
+### git-bb-open
+
+Usage:
+
+`git-bb-open` - Opens the current directory (or a path if specified) on bitbucket in the current branch.
+
+`git-bb-open path` - Opens the specified path on bitbucket in the current branch.
 
 ## Installing
 
@@ -50,4 +74,3 @@ If you aren't using any zsh frameworks, or if you're a bash user, do the followi
 
 1. git clone this repository
 2. Add `cloneDirectory/bin` to your `$PATH`.
-
