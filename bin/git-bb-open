@@ -17,7 +17,7 @@ def git_commit
 end
 
 def git_remote
-  `git remote -v | grep fetch`.chomp().split()[1]
+  `git config --get remote.origin.url`.chomp
 end
 
 def git_root
