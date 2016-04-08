@@ -24,6 +24,12 @@ The irony that I'm hosting this on Github hasn't escaped me.
 
 ## Included Scripts
 
+### git-bb-create-pull-request
+
+Usage:
+
+`git-bb-create-pull-request` - opens the bitbucket page to create a new PR for the branch you're on.
+
 ### git-bb-open
 
 Usage:
