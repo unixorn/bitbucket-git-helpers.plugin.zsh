@@ -4,31 +4,22 @@
 #
 # Copyright 2016 Joe Block <jpb@unixorn.net>
 #
-# License: Apache 2.0
+# License: Apache 2.0, see LICENSE in this repository.
+
+def push_loadpath
+  $: << File.expand_path(File.dirname(caller.first))
+end
+
+push_loadpath
 
 require 'pathname'
-
-def git_branch
-  `git rev-parse --abbrev-ref HEAD`.chomp
-end
-
-def git_commit
-  `git rev-parse HEAD`.chomp
-end
-
-def git_remote
-  `git config --get remote.origin.url`.chomp
-end
-
-def git_root
-  `git rev-parse --show-toplevel`.chomp
-end
+require 'bbhelpers'
 
 def constructURL
   remote = git_remote()
   bbloc = remote.index('bitbucket.org')
   if not bbloc
-    "This repo does not have a fetch remote at bitbucket"
+    "git-bb-open only works for repositories with their origin remote on bitbucket.org"
     exit 1
   end
   url_prefix="https://#{remote[bbloc..-5]}/src/#{git_commit}"
@@ -44,16 +35,6 @@ def constructURL
     end
   end
   url = url_prefix + path + "?at=#{git_branch}"
-end
-
-def openURL(url)
-  if RUBY_PLATFORM.index('darwin')
-    open_command = 'open'
-  end
-  if RUBY_PLATFORM.index('linux')
-    open_command = 'xdg-open'
-  end
-  system("#{open_command} #{url}")
 end
 
 if ARGV.length > 1
