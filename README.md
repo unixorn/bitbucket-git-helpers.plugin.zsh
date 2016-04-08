@@ -13,6 +13,7 @@ The irony that I'm hosting this on Github hasn't escaped me.
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Included Scripts](#included-scripts)
+  - [git-bb-create-pull-request](#git-bb-create-pull-request)
   - [git-bb-open](#git-bb-open)
 - [Installing](#installing)
   - [Antigen](#antigen)
