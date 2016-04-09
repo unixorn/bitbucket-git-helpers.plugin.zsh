@@ -19,7 +19,7 @@ def constructURL
   remote = git_remote()
   bbloc = remote.index('bitbucket.org')
   if not bbloc
-    "git-bb-open only works for repositories with their origin remote on bitbucket.org"
+    puts "git-bb-open only works for repositories with their origin remote on bitbucket.org"
     exit 1
   end
   url_prefix="https://#{remote[bbloc..-5]}/src/#{git_commit}"

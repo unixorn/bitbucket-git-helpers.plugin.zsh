@@ -19,7 +19,7 @@ def construct_PR_URL
   remote = git_remote()
   bbloc = remote.index('bitbucket.org')
   if not bbloc
-    "only works for repositories with their origin remote on bitbucket.org"
+    puts "only works for repositories with their origin remote on bitbucket.org"
     exit 1
   end
   return "https://#{remote[bbloc..-5]}/pull-requests/new?source=#{git_branch()}&t=1"
