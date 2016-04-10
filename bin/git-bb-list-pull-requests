@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+#
+# Open the PR page on bitbucket for the current repository
+#
+# Copyright 2016 Joe Block <jpb@unixorn.net>
+#
+# License: Apache 2.0
+
+def push_loadpath
+  $: << File.expand_path(File.dirname(caller.first))
+end
+
+push_loadpath
+
+require 'pathname'
+require 'bbhelpers'
+
+def construct_PR_list_URL
+  remote = git_remote()
+  bbloc = remote.index('bitbucket.org')
+  if not bbloc
+    puts "Only works for repositories with their origin remote on bitbucket.org"
+    exit 1
+  end
+  return "https://#{remote[bbloc..-5]}/pull-requests/"
+end
+
+if ARGV.length > 0
+  puts 'Usage: git-bb-list-pull-requests'
+  puts '  Opens the PR page on bitbucket for the current repository'
+end
+
+openURL(construct_PR_list_URL())

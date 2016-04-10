@@ -31,6 +31,12 @@ Usage:
 
 `git-bb-create-pull-request` - opens the bitbucket page to create a new PR for the branch you're on.
 
+### git-bb-list-pull-requests
+
+Usage:
+
+`git-bb-list-pull-requests` - opens the bitbucket pull-request page for the repository.
+
 ### git-bb-open
 
 Usage:
