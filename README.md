@@ -14,6 +14,7 @@ The irony that I'm hosting this on Github hasn't escaped me.
 
 - [Included Scripts](#included-scripts)
   - [git-bb-create-pull-request](#git-bb-create-pull-request)
+  - [git-bb-list-pull-requests](#git-bb-list-pull-requests)
   - [git-bb-open](#git-bb-open)
 - [Installing](#installing)
   - [Antigen](#antigen)
