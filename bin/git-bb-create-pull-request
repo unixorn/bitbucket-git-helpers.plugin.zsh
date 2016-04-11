@@ -22,7 +22,7 @@ def construct_PR_URL
     puts "only works for repositories with their origin remote on bitbucket.org"
     exit 1
   end
-  return "https://#{remote[bbloc..-5]}/pull-requests/new?source=#{git_branch()}&t=1"
+  return "https://#{remote[bbloc..-5].sub(':','/')}/pull-requests/new?source=#{git_branch()}&t=1"
 end
 
 if ARGV.length > 0
