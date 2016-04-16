@@ -6,14 +6,8 @@
 #
 # License: Apache 2.0, see LICENSE in this repository.
 
-def push_loadpath
-  $: << File.expand_path(File.dirname(caller.first))
-end
-
-push_loadpath
-
 require 'pathname'
-require 'bbhelpers'
+require_relative 'bbhelpers'
 
 def constructURL
   remote = git_remote()
