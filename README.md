@@ -65,9 +65,9 @@ If you're using [oh-my-zsh](github.com/robbyrussell/oh-my-zsh):
 
 2. Clone the repository into a new `bitbucket-git-helpers` directory:
 
-    `git clone https://github.com/unixorn/bitbucket-git-helpers.plugin.zsh.git bitbucket-git-helpers.plugin.zsh`
+    `git clone https://github.com/unixorn/bitbucket-git-helpers.plugin.zsh.git bitbucket-git-helpers`
 
-3. Edit your `~/.zshrc` and add `bitbucket-git-helpers.plugin.zsh` – same as clone directory – to the list of plugins to enable:
+3. Edit your `~/.zshrc` and add `bitbucket-git-helpers` – same as clone directory – to the list of plugins to enable:
 
     `plugins=( ... bitbucket-git-helpers.plugin.zsh )`
 
