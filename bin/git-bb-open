@@ -7,7 +7,7 @@
 # License: Apache 2.0, see LICENSE in this repository.
 
 require 'pathname'
-require_relative 'bbhelpers'
+require_relative 'githelpers'
 
 def constructURL
   remote = git_remote()
