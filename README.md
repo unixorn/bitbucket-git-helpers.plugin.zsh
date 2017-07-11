@@ -1,5 +1,8 @@
 # bitbucket-git-helpers
 
+[![Code Climate](https://codeclimate.com/github/unixorn/bitbucket-git-helpers.plugin.zsh/badges/gpa.svg)](https://codeclimate.com/github/unixorn/bitbucket-git-helpers.plugin.zsh)
+[![Issue Count](https://codeclimate.com/github/unixorn/bitbucket-git-helpers.plugin.zsh/badges/issue_count.svg)](https://codeclimate.com/github/unixorn/bitbucket-git-helpers.plugin.zsh)
+
 Some git helper scripts for dealing with repos on bitbucket that were inspired by Peter Hurford's [git-it-on.zsh](https://github.com/peterhurford/git-it-on.zsh) plugin.
 
 *Note:* This has only been tested on OS X.  Support for Linux is present but has not been tested.
